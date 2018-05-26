@@ -34,3 +34,16 @@ fn main() {
 
     println!("Your secret number id {}", guess_number(secret_number));
 }
+
+#[cfg(test)]
+mod tests {
+    use super::guess_number;
+
+    #[test]
+    fn test_guess_number() {
+        for num in -1000..1000 {
+            let result = guess_number(num);
+            assert_eq!(num, result);
+        }
+    }
+}
